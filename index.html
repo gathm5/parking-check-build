@@ -35,7 +35,7 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<div class="container" data-ui-view=""></div>
+<div class="positive" data-ui-view=""></div>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
@@ -63,6 +63,18 @@
 
 
 <!-- Begin Templates -->
+<script type="text/ng-template" id="/views/dashboard.html">
+<div class="dashboard" data-ng-class="{'negative': isParked, 'positive': !isParked}">
+    <parking-button data-toggle="isParked"></parking-button>
+    <div data-ng-if="parking">
+        Location: {{parking.location.coords.latitude}}, {{parking.location.coords.longitude}}
+        <div>
+            <a href="geo:{{parking.location.coords.latitude}},{{parking.location.coords.longitude}}">Open in maps</a>
+        </div>
+    </div>
+</div>
+</script>
+
 <script type="text/ng-template" id="/views/main.html">
 <div class="main">
     <div class="button" data-ng-click="locate()">

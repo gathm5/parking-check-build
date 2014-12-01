@@ -1,0 +1,9 @@
+<div class="dashboard" data-ng-class="{'negative': isParked, 'positive': !isParked}">
+    <parking-button data-toggle="isParked"></parking-button>
+    <div data-ng-if="parking">
+        Location: {{parking.location.coords.latitude}}, {{parking.location.coords.longitude}}
+        <div>
+            <a href="geo:{{parking.location.coords.latitude}},{{parking.location.coords.longitude}}">Open in maps</a>
+        </div>
+    </div>
+</div>
