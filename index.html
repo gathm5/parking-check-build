@@ -65,11 +65,22 @@
 <!-- Begin Templates -->
 <script type="text/ng-template" id="/views/dashboard.html">
 <div class="dashboard" data-ng-class="{'negative': isParked, 'positive': !isParked}">
-    <parking-button data-toggle="isParked"></parking-button>
+    <parking-button data-clicker="parkingControl"></parking-button>
     <div data-ng-if="parking">
-        Location: {{parking.location.coords.latitude}}, {{parking.location.coords.longitude}}
+        <div>
+            Location: {{parking.location.coords.latitude}}, {{parking.location.coords.longitude}}
+        </div>
         <div>
             <a href="geo:{{parking.location.coords.latitude}},{{parking.location.coords.longitude}}">Open in maps</a>
+        </div>
+        <div>
+            parked since: {{parking.date | parkingTime}}
+        </div>
+    </div>
+    <div data-ng-if="current">
+        <hr/>
+        <div>
+            Current location: {{current.location.coords.latitude}}, {{current.location.coords.longitude}}
         </div>
     </div>
 </div>
@@ -77,7 +88,7 @@
 
 <script type="text/ng-template" id="/views/directives/parking-button.html">
 <div class="parking-button">
-    <div class="button" data-ng-click="ClickParking()">
+    <div class="button" data-ng-click="clicker()">
         
     </div>
 </div>
