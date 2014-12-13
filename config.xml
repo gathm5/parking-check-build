@@ -16,7 +16,7 @@
     <preference name="webviewbounce" value="true"/>
     <preference name="prerendered-icon" value="true"/>
     <preference name="stay-in-webview" value="false"/>
-    <preference name="ios-statusbarstyle" value="black-opaque"/>
+    <!--<preference name="ios-statusbarstyle" value="black-opaque"/>-->
     <preference name="detect-data-types" value="true"/>
     <preference name="exit-on-suspend" value="false"/>
     <preference name="show-splash-screen-spinner" value="true"/>
@@ -24,8 +24,23 @@
     <preference name="disable-cursor" value="false"/>
     <preference name="android-minSdkVersion" value="9"/>
     <preference name="android-installLocation" value="auto"/>
+    <gap:plugin name="org.li8.inappbrowser" version="0.1" />
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" onload="true"/>
+    </feature>
 
+    <preference name="StatusBarOverlaysWebView" value="false"/>
+
+    <preference name="StatusBarBackgroundColor" value="#000000"/>
+
+    <preference name="StatusBarStyle" value="lightcontent"/>
+    <gap:plugin name="com.phonegap.plugin.statusbar"/>
     <gap:plugin name="org.apache.cordova.battery-status"/>
+    <gap:plugin name="org.apache.cordova.camera"/>
+    <gap:plugin name="org.apache.cordova.media-capture"/>
     <gap:plugin name="org.apache.cordova.device"/>
     <gap:plugin name="org.apache.cordova.device-orientation"/>
     <gap:plugin name="org.apache.cordova.dialogs"/>
@@ -37,7 +52,9 @@
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker"/>
     </feature>
-
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
     <icon src="icon.png"/>
     <icon gap:platform="android" gap:qualifier="ldpi" src="res/icon/android/icon-36-ldpi.png"/>
     <icon gap:platform="android" gap:qualifier="mdpi" src="res/icon/android/icon-48-mdpi.png"/>

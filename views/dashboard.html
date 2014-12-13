@@ -1,25 +1,19 @@
 <div class="dashboard" data-ng-class="{'negative': isParked, 'positive': !isParked}">
     <parking-button data-clicker="parkingControl"></parking-button>
-    <div data-ng-if="parking">
+    <div data-ng-if="location">
         <div>
-            Location: {{parking.location.coords.latitude}}, {{parking.location.coords.longitude}}
+            parked {{isParked.location.timestamp | parkingTime}}
         </div>
         <div>
-            <a href="geo:{{parking.location.coords.latitude}},{{parking.location.coords.longitude}}">Open in
-                maps</a>
+            Latitude: {{location.coords.latitude | number: 3}}
         </div>
         <div>
-            parked since: {{parking.date | parkingTime}}
-        </div>
-    </div>
-    <div data-ng-if="current">
-        <hr/>
-        <div>
-            Current location: {{current.location.coords.latitude}}, {{current.location.coords.longitude}}
+            Longitude: {{location.coords.longitude | number: 3}}
         </div>
         <div>
-            Find where you parked:
+            <geo-link data-geo="location.coords" data-suffix="isParked.location.coords">
+                Locate my place
+            </geo-link>
         </div>
-        <a href="{{mapLink}}{{current.location.coords.latitude}},{{current.location.coords.longitude}}">Open in maps</a>
     </div>
 </div>

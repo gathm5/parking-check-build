@@ -15,6 +15,7 @@
     <meta id="viewport" name="viewport" content="width=device-width, height=device-height, maximum-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+    <link href="http://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
@@ -23,7 +24,7 @@
 
     <link rel="stylesheet" href="styles/main.css"/>
 </head>
-<body data-ng-app="parkingCheckApp" data-fast-click="">
+<body data-ng-app="parkingCheckApp" data-fast-click="" data-device-platform="">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -36,7 +37,7 @@
 
 <!-- Add your site or application content here -->
 <div class="positive" data-ui-view=""></div>
-
+<web-intent></web-intent>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
     (function (i, s, o, g, r, a, m) {
@@ -66,27 +67,21 @@
 <script type="text/ng-template" id="/views/dashboard.html">
 <div class="dashboard" data-ng-class="{'negative': isParked, 'positive': !isParked}">
     <parking-button data-clicker="parkingControl"></parking-button>
-    <div data-ng-if="parking">
+    <div data-ng-if="location">
         <div>
-            Location: {{parking.location.coords.latitude}}, {{parking.location.coords.longitude}}
+            parked {{isParked.location.timestamp | parkingTime}}
         </div>
         <div>
-            <a href="geo:{{parking.location.coords.latitude}},{{parking.location.coords.longitude}}">Open in
-                maps</a>
+            Latitude: {{location.coords.latitude | number: 3}}
         </div>
         <div>
-            parked since: {{parking.date | parkingTime}}
-        </div>
-    </div>
-    <div data-ng-if="current">
-        <hr/>
-        <div>
-            Current location: {{current.location.coords.latitude}}, {{current.location.coords.longitude}}
+            Longitude: {{location.coords.longitude | number: 3}}
         </div>
         <div>
-            Find where you parked:
+            <geo-link data-geo="location.coords" data-suffix="isParked.location.coords">
+                Locate my place
+            </geo-link>
         </div>
-        <a href="{{mapLink}}{{current.location.coords.latitude}},{{current.location.coords.longitude}}">Open in maps</a>
     </div>
 </div>
 </script>
@@ -94,7 +89,20 @@
 <script type="text/ng-template" id="/views/directives/parking-button.html">
 <div class="parking-button">
     <div class="button" data-ng-click="clicker()">
-        
+        <span class="park-here">
+            Park Here!
+        </span>
+        <span class="parked">
+            Ended Parking?
+        </span>
+    </div>
+</div>
+</script>
+
+<script type="text/ng-template" id="/views/directives/web-intent.html">
+<div class="web-intent">
+    <div class="intent intent-animation" data-ng-if="message">
+        <span class="message">{{message}}</span>
     </div>
 </div>
 </script>
