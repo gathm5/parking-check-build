@@ -1,19 +1,21 @@
 <div class="dashboard" data-ng-class="{'negative': isParked, 'positive': !isParked}">
     <parking-button data-clicker="parkingControl"></parking-button>
-    <div data-ng-if="location">
-        <div>
-            parked {{isParked.location.timestamp | parkingTime}}
+    <div class="parking-table" data-ng-if="location">
+        <div class="parking-time">
+            <div data-ng-if="updateTime">
+                parked {{isParked.location.timestamp | parkingTime}}
+            </div>
         </div>
-        <div>
-            Latitude: {{location.coords.latitude | number: 3}}
+        <div class="co-ordinates">
+            <div>
+                Latitude: {{location.coords.latitude | number: 3}}
+            </div>
+            <div>
+                Longitude: {{location.coords.longitude | number: 3}}
+            </div>
         </div>
-        <div>
-            Longitude: {{location.coords.longitude | number: 3}}
-        </div>
-        <div>
-            <geo-link data-geo="location.coords" data-suffix="isParked.location.coords">
-                Locate my place
-            </geo-link>
-        </div>
+        <geo-link data-geo="location.coords" data-suffix="isParked.location.coords">
+            Locate my place
+        </geo-link>
     </div>
 </div>
