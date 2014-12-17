@@ -133,9 +133,10 @@
 </script>
 
 <script type="text/ng-template" id="/views/locate-user.html">
-<div class="locate-user">
+<div class="locate-user" style="padding-top: 20px; width: 100%; height: 100%">
     <map center="{{mapConfig.center.latitude}},{{mapConfig.center.longitude}}" zoom="{{mapConfig.zoom}}">
-        <marker data-ng-repeat="marker in mapConfig.markers" position="{{marker.latitude}},{{marker.longitude}}" icon="{{marker.icon}}"></marker>
+        <marker data-ng-repeat="marker in mapConfig.markers" position="{{marker.latitude}},{{marker.longitude}}"
+                icon="{{marker.icon}}"></marker>
     </map>
 </div>
 </script>
