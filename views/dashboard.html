@@ -8,14 +8,31 @@
         </div>
         <div class="co-ordinates">
             <div>
-                Latitude: {{location.coords.latitude | number: 3}}
+                {{location.coords.latitude}}
             </div>
             <div>
-                Longitude: {{location.coords.longitude | number: 3}}
+                {{location.coords.longitude}}
             </div>
         </div>
-        <geo-link data-geo="location.coords" data-suffix="isParked.location.coords">
-            Locate my place
+        <geo-link data-ng-if="false" data-geo="location.coords" data-suffix="isParked.location.coords">
+            Get to my parking
         </geo-link>
+        <a class="map-link" data-ng-click="getWalkable()">
+            Get walkable
+        </a>
+
+        <div data-ng-repeat="leg in walking.legs">
+            <div>
+                Approx. {{leg.distance}}
+            </div>
+            <div>
+                In {{leg.formattedTime}}
+            </div>
+            <ul>
+                <li data-ng-repeat="route in leg.maneuvers">
+                    {{route.narrative}} in {{route.time}}
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
