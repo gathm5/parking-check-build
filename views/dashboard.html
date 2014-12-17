@@ -20,6 +20,9 @@
         <a class="map-link" data-ng-click="getWalkable()">
             Get walkable
         </a>
+        <a data-ng-if="mapReady" class="map-link" data-ng-click="locateInMap()">
+            Locate in Map
+        </a>
 
         <div data-ng-repeat="leg in walking.legs">
             <div>

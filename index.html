@@ -58,6 +58,7 @@
 
 <script src="cordova.js"></script>
 
+<script src="http://maps.google.com/maps/api/js"></script>
 <script src="http://www.mapquestapi.com/sdk/js/v7.2.s/mqa.toolkit.js?key=Fmjtd%7Cluurn1uz2u%2Cbl%3Do5-9wyx50"></script>
 
 <script src="scripts/modules.js"></script>
@@ -88,6 +89,9 @@
         </geo-link>
         <a class="map-link" data-ng-click="getWalkable()">
             Get walkable
+        </a>
+        <a data-ng-if="mapReady" class="map-link" data-ng-click="locateInMap()">
+            Locate in Map
         </a>
 
         <div data-ng-repeat="leg in walking.legs">
@@ -125,6 +129,14 @@
     <div class="intent intent-animation" data-ng-if="message">
         <span class="message">{{message}}</span>
     </div>
+</div>
+</script>
+
+<script type="text/ng-template" id="/views/locate-user.html">
+<div class="locate-user">
+    <map center="{{mapConfig.center.latitude}},{{mapConfig.center.longitude}}" zoom="{{mapConfig.zoom}}">
+        <marker data-ng-repeat="marker in mapConfig.markers" position="{{marker.latitude}},{{marker.longitude}}" icon="{{marker.icon}}"></marker>
+    </map>
 </div>
 </script>
 
