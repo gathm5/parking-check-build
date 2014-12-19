@@ -67,6 +67,25 @@
 
 
 <!-- Begin Templates -->
+<script type="text/ng-template" id="/views/app-page.html">
+<div class="app-page">
+    <header data-ui-view="Header">
+
+    </header>
+    <ion-scroll class="content" direction="y">
+        <div data-ui-view="Content"></div>
+    </ion-scroll>
+    <footer data-ui-view="Footer">
+
+    </footer>
+</div>
+</script>
+
+<script type="text/ng-template" id="/views/connect.html">
+<p>This is the connect view.</p>
+
+</script>
+
 <script type="text/ng-template" id="/views/dashboard.html">
 <div class="dashboard" data-ng-class="{'negative': isParked, 'positive': !isParked}">
     <parking-button data-clicker="parkingControl"></parking-button>
@@ -132,6 +151,21 @@
 </div>
 </script>
 
+<script type="text/ng-template" id="/views/footer.html">
+<p>This is the footer view.</p>
+
+</script>
+
+<script type="text/ng-template" id="/views/header.html">
+<p>This is the header view.</p>
+
+</script>
+
+<script type="text/ng-template" id="/views/history.html">
+<p>This is the history view.</p>
+
+</script>
+
 <script type="text/ng-template" id="/views/locate-user.html">
 <div class="locate-user" style="padding-top: 20px; width: 100%; height: 100%">
     <map center="{{mapConfig.center.latitude}},{{mapConfig.center.longitude}}" zoom="{{mapConfig.zoom}}"
@@ -154,6 +188,11 @@
         isAvailable: {{isAvailable}}
     </div>
 </div>
+</script>
+
+<script type="text/ng-template" id="/views/parking.html">
+<p>This is the parking view.</p>
+
 </script>
 <!-- End Templates -->
 
