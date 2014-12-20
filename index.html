@@ -157,8 +157,14 @@
 </script>
 
 <script type="text/ng-template" id="/views/header.html">
-<p>This is the header view.</p>
-
+<div class="header">
+    <div data-ng-if="header">
+        <button data-ng-if="header.back" class="back-button" data-ng-click="back()">
+            <span>{{header.back.label}}</span>
+            <span data-ng-class="{{header.back.align}}">{{header.back.title}}</span>
+        </button>
+    </div>
+</div>
 </script>
 
 <script type="text/ng-template" id="/views/history.html">
