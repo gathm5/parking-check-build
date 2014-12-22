@@ -69,9 +69,7 @@
 <!-- Begin Templates -->
 <script type="text/ng-template" id="/views/app-page.html">
 <div class="app-page">
-    <header data-ui-view="Header">
-
-    </header>
+    <header data-ui-view="Header" class="header"></header>
     <ion-scroll class="content" direction="y" has-bouncing="true">
         <div data-ui-view="Content" class="full"></div>
     </ion-scroll>
@@ -157,7 +155,7 @@
 </script>
 
 <script type="text/ng-template" id="/views/header.html">
-<div class="header">
+<div>
     <div data-ng-if="header" data-ng-class="header.back.align">
         <div>{{header.back.title}}</div>
         <button data-ng-if="header.back" class="back-button" data-ng-click="back()">
