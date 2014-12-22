@@ -1,8 +1,11 @@
 <div class="header">
-    <div data-ng-if="header">
+    <div data-ng-if="header" data-ng-class="header.back.align">
+        <div>{{header.back.title}}</div>
         <button data-ng-if="header.back" class="back-button" data-ng-click="back()">
-            <span>{{header.back.label}}</span>
-            <span data-ng-class="{{header.back.align}}">{{header.back.title}}</span>
+            <span><i class="ion-arrow-left-c"></i> {{header.back.label || 'Back'}}</span>
         </button>
+    </div>
+    <div data-ng-if="!header">
+        {{$app.name}}
     </div>
 </div>
