@@ -80,8 +80,9 @@
 </script>
 
 <script type="text/ng-template" id="/views/connect.html">
-<p>This is the connect view.</p>
-
+<div class="connect">
+    <p>This is the connect view.</p>
+</div>
 </script>
 
 <script type="text/ng-template" id="/views/dashboard.html">
@@ -150,20 +151,43 @@
 </script>
 
 <script type="text/ng-template" id="/views/footer.html">
-<p>This is the footer view.</p>
+<div class="footer">
+    <div class="tab" data-ng-click="$state.go('app.park')" data-ng-class="{'selected': $state.includes('app.park')}">
+        <i class="ion-android-car"></i>
 
+        <div class="label">
+            Park
+        </div>
+    </div>
+    <div class="tab" data-ng-click="$state.go('app.history')"
+         data-ng-class="{'selected': $state.includes('app.history')}">
+        <i class="ion-ios-list-outline"></i>
+
+        <div class="label">
+            History
+        </div>
+    </div>
+    <div class="tab" data-ng-click="$state.go('app.connect')"
+         data-ng-class="{'selected': $state.includes('app.connect')}">
+        <i class="ion-android-contact"></i>
+
+        <div class="label">
+            Send
+        </div>
+    </div>
+</div>
 </script>
 
 <script type="text/ng-template" id="/views/header.html">
 <div>
     <div data-ng-if="header" data-ng-class="header.back.align">
-        <div>{{header.back.title}}</div>
+        <div class="text">{{header.back.title || $app.name}}</div>
         <button data-ng-if="header.back" class="back-button" data-ng-click="back()">
             <span><i class="ion-chevron-left"></i> {{header.back.label || 'Back'}}</span>
         </button>
     </div>
     <div data-ng-if="!header">
-        <div>{{$app.name}}</div>
+        <div class="text">{{$app.name}}</div>
         <button class="header-icon">
             <span><i class="ion-navicon-round"></i></span>
         </button>
@@ -172,8 +196,9 @@
 </script>
 
 <script type="text/ng-template" id="/views/history.html">
-<p>This is the history view.</p>
-
+<div class="history">
+    <p>This is the history view.</p>
+</div>
 </script>
 
 <script type="text/ng-template" id="/views/locate-user.html">

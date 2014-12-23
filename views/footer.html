@@ -1,1 +1,25 @@
-<p>This is the footer view.</p>
+<div class="footer">
+    <div class="tab" data-ng-click="$state.go('app.park')" data-ng-class="{'selected': $state.includes('app.park')}">
+        <i class="ion-android-car"></i>
+
+        <div class="label">
+            Park
+        </div>
+    </div>
+    <div class="tab" data-ng-click="$state.go('app.history')"
+         data-ng-class="{'selected': $state.includes('app.history')}">
+        <i class="ion-ios-list-outline"></i>
+
+        <div class="label">
+            History
+        </div>
+    </div>
+    <div class="tab" data-ng-click="$state.go('app.connect')"
+         data-ng-class="{'selected': $state.includes('app.connect')}">
+        <i class="ion-android-contact"></i>
+
+        <div class="label">
+            Send
+        </div>
+    </div>
+</div>
