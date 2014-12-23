@@ -1,5 +1,6 @@
 <div class="locate-user">
-    <map center="{{mapConfig.center.latitude}},{{mapConfig.center.longitude}}" zoom="{{mapConfig.zoom}}">
+    <map center="{{mapConfig.center.latitude}},{{mapConfig.center.longitude}}" zoom="{{mapConfig.zoom}}"
+         screen-size="112">
         <marker data-ng-repeat="marker in mapConfig.markers" position="{{marker.latitude}},{{marker.longitude}}"
                 icon="{{marker.icon}}" title="{{marker.title}}"></marker>
     </map>
