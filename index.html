@@ -63,19 +63,36 @@
 
 <script src="scripts/modules.js"></script>
 
-<script src="scripts/scripts.js"></script>
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/services/geocoder.js"></script>
+<script src="scripts/services/device-listeners.js"></script>
+<script src="scripts/services/local-notification-plugin.js"></script>
+<script src="scripts/services/active-parking-service.js"></script>
+<script src="scripts/controllers/dashboard.js"></script>
+<script src="scripts/directives/parking-button.js"></script>
+<script src="scripts/filters/parking-time-filter.js"></script>
+<script src="scripts/directives/geo-link.js"></script>
+<script src="scripts/directives/device-platform.js"></script>
+<script src="scripts/services/transit-service-api.js"></script>
+<script src="scripts/controllers/locate-user.js"></script>
+<script src="scripts/controllers/history.js"></script>
+<script src="scripts/controllers/connect.js"></script>
+<script src="scripts/controllers/parking.js"></script>
+<script src="scripts/directives/screen-size.js"></script>
+<!-- endbuild -->
 
 
 <!-- Begin Templates -->
 <script type="text/ng-template" id="/views/app-page.html">
 <div class="app-page">
     <header data-ui-view="Header" class="header"></header>
-    <ion-scroll class="content" direction="y" has-bouncing="true">
+    <!--<ion-scroll class="content" direction="y" has-bouncing="true">
         <div data-ui-view="Content" class="full"></div>
-    </ion-scroll>
-    <footer data-ui-view="Footer">
-
-    </footer>
+    </ion-scroll>-->
+    <div data-ui-view="Content" screen-size="112" class="content"></div>
+    <footer data-ui-view="Footer"></footer>
 </div>
 </script>
 
@@ -225,8 +242,9 @@
 </script>
 
 <script type="text/ng-template" id="/views/parking.html">
-<p>This is the parking view.</p>
-
+<div class="parking" data-ng-class="{'negative': isParked, 'positive': !isParked}">
+    <parking-button data-clicker="parkingControl"></parking-button>
+</div>
 </script>
 <!-- End Templates -->
 
