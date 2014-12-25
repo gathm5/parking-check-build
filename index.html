@@ -248,7 +248,8 @@
         </div>
 
         <div data-ng-click="clickPicture()" class="link">
-            Add a pic
+            <span data-ng-if="!parkingImage">Take pic</span>
+            <span data-ng-if="parkingImage">Replace pic</span>
         </div>
 
         <div class="image" data-ng-if="parkingImage">
