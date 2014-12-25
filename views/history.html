@@ -1,3 +1,7 @@
 <div class="history">
-    <p>This is the history view.</p>
+    <ul>
+        <li data-ng-repeat="parking in history">
+            <parking-list-item data-list-item="parking"></parking-list-item>
+        </li>
+    </ul>
 </div>

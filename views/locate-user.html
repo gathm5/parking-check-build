@@ -1,4 +1,4 @@
-<div class="locate-user">
+<div class="locate-user" data-ng-if="mapConfig">
     <map center="{{mapConfig.center.latitude}},{{mapConfig.center.longitude}}" zoom="{{mapConfig.zoom}}"
          screen-size="112">
         <marker data-ng-repeat="marker in mapConfig.markers" position="{{marker.latitude}},{{marker.longitude}}"

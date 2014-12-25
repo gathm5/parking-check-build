@@ -1,3 +1,8 @@
 <div class="parking" data-ng-class="{'negative': isParked, 'positive': !isParked}">
     <parking-button data-clicker="parkingControl"></parking-button>
+    <div data-ng-if="isParked">
+        <div data-ng-click="openInMaps()">
+            Locate using maps
+        </div>
+    </div>
 </div>
