@@ -1,3 +1,8 @@
 <div class="connect">
-    <p>This is the connect view.</p>
+    <div data-ng-if="active">
+        {{active.start.timestamp}}
+        <div>
+            Image: {{active.image}}
+        </div>
+    </div>
 </div>
