@@ -244,16 +244,17 @@
     <parking-button data-clicker="parkingControl"></parking-button>
     <div data-ng-if="isParked">
         <div data-ng-click="openInMaps()" class="link">
-            <span>Locate using maps</span>
+            <span><i class="ion-ios-location"></i> Locate using maps</span>
         </div>
 
         <div data-ng-click="clickPicture()" class="link">
+            <i class="ion-ios-camera"></i>
             <span data-ng-if="!parkingImage">Take pic</span>
             <span data-ng-if="parkingImage">Replace pic</span>
         </div>
 
-        <div data-ng-click="addNotes()" class="link">
-            <span>Add additional informations</span>
+        <div data-ng-show="!needExtra" data-ng-click="addNotes()" class="link">
+            <span><i class="ion-edit"></i> Add additional informations</span>
         </div>
 
         <div data-ng-show="needExtra" class="additional-information">
@@ -270,10 +271,10 @@
                 <textarea data-ng-model="extras.notes" placeholder="comments"></textarea>
             </label>
 
-            <div class="submit control" data-ng-click="saveExtra()">
+            <div class="submit control link" data-ng-click="saveExtra()">
                 <span>Save</span>
             </div>
-            <div class="cancel control" data-ng-click="cancelExtra()">
+            <div class="cancel control link" data-ng-click="cancelExtra()">
                 <span>Cancel</span>
             </div>
         </div>
