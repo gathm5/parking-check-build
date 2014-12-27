@@ -259,19 +259,19 @@
             </div>
         </div>
 
-        <div data-ng-show="needExtra" class="additional-information">
-            <label>
+        <div data-ng-show="needExtra" class="additional-information" id="additionalInformation">
+            <div class="label">
                 <span>Floor/Level</span>
                 <input type="text" data-ng-model="extras.level" placeholder="Floor/Level">
-            </label>
-            <label>
+            </div>
+            <div class="label">
                 <span>Slot</span>
                 <input type="text" data-ng-model="extras.slot" placeholder="Slot">
-            </label>
-            <label>
+            </div>
+            <div class="label">
                 <span>Notes</span>
                 <input data-ng-model="extras.notes" placeholder="comments"/>
-            </label>
+            </div>
         </div>
         <div data-ng-show="needExtra" class="actions">
             <div class="submit link" data-ng-click="saveExtra()">
