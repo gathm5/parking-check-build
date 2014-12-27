@@ -1,7 +1,7 @@
 <div class="parking" data-ng-class="{'negative': isParked, 'positive': !isParked}">
     <parking-button data-clicker="parkingControl"></parking-button>
     <div class="parked-elements" data-ng-if="isParked">
-        <div class="parked-time">
+        <div data-ng-if="activeParking" class="parked-time">
             parked {{activeParking.start.timestamp | parkingTime}}
         </div>
         <div data-ng-click="openInMaps()" class="link map-link">
@@ -30,17 +30,16 @@
                 <input type="text" data-ng-model="extras.slot" placeholder="Slot">
             </label>
             <label>
-                <span>Any comments</span>
+                <span>Notes</span>
                 <input data-ng-model="extras.notes" placeholder="comments"/>
             </label>
-
-            <div class="actions">
-                <div class="submit link" data-ng-click="saveExtra()">
-                    <span>Save</span>
-                </div>
-                <div class="cancel link" data-ng-click="cancelExtra()">
-                    <span>Cancel</span>
-                </div>
+        </div>
+        <div data-ng-show="needExtra" class="actions">
+            <div class="submit link" data-ng-click="saveExtra()">
+                <span>Save</span>
+            </div>
+            <div class="cancel link" data-ng-click="cancelExtra()">
+                <span>Cancel</span>
             </div>
         </div>
 
@@ -49,7 +48,15 @@
         </div>
 
         <div class="extras" data-ng-show="!needExtra" data-ng-if="extras.level || extras.slot || extras.notes">
-            {{extras}}
+            <div class="level" data-ng-if="extras.level">
+                <span>Level:</span> {{extras.level}}
+            </div>
+            <div class="slot" data-ng-if="extras.slot">
+                <span>Slot:</span> {{extras.slot}}
+            </div>
+            <div class="notes" data-ng-if="extras.notes">
+                {{extras.notes}}
+            </div>
         </div>
 
     </div>
