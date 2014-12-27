@@ -82,9 +82,6 @@
 <div class="connect">
     <div data-ng-if="active">
         {{active.start.timestamp}}
-        <div>
-            Image: {{active.image}}
-        </div>
     </div>
 </div>
 </script>
@@ -242,19 +239,24 @@
 <script type="text/ng-template" id="/views/parking.html">
 <div class="parking" data-ng-class="{'negative': isParked, 'positive': !isParked}">
     <parking-button data-clicker="parkingControl"></parking-button>
-    <div data-ng-if="isParked">
-        <div data-ng-click="openInMaps()" class="link">
+    <div class="parked-elements" data-ng-if="isParked">
+        <div class="parked-time">
+            parked {{activeParking.start.timestamp | parkingTime}}
+        </div>
+        <div data-ng-click="openInMaps()" class="link map-link">
             <span><i class="ion-ios-location"></i> Locate using maps</span>
         </div>
 
-        <div data-ng-click="clickPicture()" class="link">
-            <i class="ion-ios-camera"></i>
-            <span data-ng-if="!parkingImage">Take pic</span>
-            <span data-ng-if="parkingImage">Replace pic</span>
-        </div>
+        <div data-ng-show="!needExtra" class="extra-link">
+            <div data-ng-click="clickPicture()" class="link pic-link">
+                <i class="ion-ios-camera"></i>
+                <span data-ng-if="!parkingImage">Take pic</span>
+                <span data-ng-if="parkingImage">Replace pic</span>
+            </div>
 
-        <div data-ng-show="!needExtra" data-ng-click="addNotes()" class="link">
-            <span><i class="ion-edit"></i> Add additional informations</span>
+            <div data-ng-click="addNotes()" class="link notes-link">
+                <span><i class="ion-edit"></i> Add Notes</span>
+            </div>
         </div>
 
         <div data-ng-show="needExtra" class="additional-information">
@@ -268,14 +270,16 @@
             </label>
             <label>
                 <span>Any comments</span>
-                <textarea data-ng-model="extras.notes" placeholder="comments"></textarea>
+                <input data-ng-model="extras.notes" placeholder="comments"/>
             </label>
 
-            <div class="submit control link" data-ng-click="saveExtra()">
-                <span>Save</span>
-            </div>
-            <div class="cancel control link" data-ng-click="cancelExtra()">
-                <span>Cancel</span>
+            <div class="actions">
+                <div class="submit link" data-ng-click="saveExtra()">
+                    <span>Save</span>
+                </div>
+                <div class="cancel link" data-ng-click="cancelExtra()">
+                    <span>Cancel</span>
+                </div>
             </div>
         </div>
 
@@ -283,7 +287,7 @@
             <img data-ng-src="{{parkingImage}}"/>
         </div>
 
-        <div class="extras" data-ng-show="!needExtra">
+        <div class="extras" data-ng-show="!needExtra" data-ng-if="extras.level || extras.slot || extras.notes">
             {{extras}}
         </div>
 
