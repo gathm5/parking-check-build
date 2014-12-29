@@ -6,6 +6,15 @@
             Park
         </div>
     </div>
+    <div class="tab" data-ng-click="$state.go('app.search')"
+         data-ng-class="{'selected': $state.includes('app.search')}">
+        <i class="ion-android-car"></i>
+        <i class="move-closer ion-search"></i>
+
+        <div class="label">
+            Search
+        </div>
+    </div>
     <div class="tab" data-ng-click="$state.go('app.history')"
          data-ng-class="{'selected': $state.includes('app.history')}">
         <i class="ion-ios-list-outline"></i>
