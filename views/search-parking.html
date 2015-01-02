@@ -1,22 +1,27 @@
 <div class="search-parking">
-    <div class="link" data-ng-click="findNearMe()">
-        Parking near me
-    </div>
-    <div class="or-message">
-        (or)
-    </div>
-    <div>
-        <input class="custom-location" ng-autocomplete placeholder="Search for a location" type="text"
-               data-ng-model="customLocation"/>
+    <div class="search-container">
+        <div class="link" data-ng-click="findNearMe()">
+            Parking near me
+        </div>
+        <div class="or-message">
+            (or)
+        </div>
+        <div>
+            <input class="custom-location" ng-autocomplete placeholder="Search for a location" type="text"
+                   data-ng-model="customLocation"/>
 
-        <div class="link" data-ng-click="findParking()">
-            Find Parking here
+            <div class="link" data-ng-click="findParking()">
+                Find Parking here
+            </div>
         </div>
     </div>
-    <ul class="parking-results">
+    <ul class="parking-results" data-ng-if="parking.parking_listings">
         <li data-ng-repeat="location in parking.parking_listings">
             {{location.location_name}}, {{location.available_spots}} spots available
-            <br />Price: {{location.price_formatted}}
+            <br/>Price: {{location.price_formatted}}
         </li>
     </ul>
+    <div class="no-results" data-ng-if="!parking.parking_listings && !searching.started">
+        {{failure.reason}}
+    </div>
 </div>
