@@ -21,7 +21,12 @@
             <br/>Price: {{location.price_formatted}}
         </li>
     </ul>
-    <div class="no-results" data-ng-if="!parking.parking_listings && !searching.started">
+    <ul class="parking-results" data-ng-if="parking.results">
+        <li data-ng-repeat="location in parking.results">
+            {{location.name}}
+        </li>
+    </ul>
+    <div class="no-results" data-ng-if="!parking.parking_listings && !parking.results && !searching.started">
         {{failure.reason}}
     </div>
 </div>
