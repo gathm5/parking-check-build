@@ -23,7 +23,12 @@
     </ul>
     <ul class="parking-results" data-ng-if="parking.results">
         <li data-ng-repeat="location in parking.results">
-            {{location.name}}
+            <div>
+                {{location.name}}
+                <div>
+                    near {{location.vicinity}}
+                </div>
+            </div>
         </li>
     </ul>
     <div class="no-results" data-ng-if="!parking.parking_listings && !parking.results && !searching.started">
