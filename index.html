@@ -339,8 +339,8 @@
         <li data-ng-repeat="location in parking.results">
             <div>
                 {{location.name}}
-                <div data-ng-if="location.vicinity">
-                    near {{location.vicinity}} <a href="geo:{{location.geometry.location.lat}},{{location.geometry.location.lng}}?q={{location.name}}">View</a>
+                <div data-ng-if="location.vicinity || location.formatted_address">
+                    near {{location.vicinity || location.formatted_address | ignorePartialResult:'country'}} <a href="geo:{{location.geometry.location.lat}},{{location.geometry.location.lng}}?q={{location.name}}">View</a>
                 </div>
             </div>
         </li>
