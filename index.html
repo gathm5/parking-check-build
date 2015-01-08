@@ -340,7 +340,7 @@
             <div>
                 {{location.name}}
                 <div data-ng-if="location.vicinity">
-                    near {{location.vicinity}} <a href="geo:{{location.geometry.latitude}},{{location.geometry.longitude}}">View</a>
+                    near {{location.vicinity}} <a href="geo:{{location.geometry.location.lat}},{{location.geometry.location.lng}}?q={{location.name}}">View</a>
                 </div>
             </div>
         </li>
