@@ -1,4 +1,4 @@
-<div>
+<div class="app-header">
     <div data-ng-if="header" data-ng-class="header.back.align">
         <div class="text">{{header.back.title || $app.name}}</div>
         <button data-ng-if="header.back" class="back-button" data-ng-click="back()">
@@ -7,8 +7,8 @@
     </div>
     <div data-ng-if="!header">
         <div class="text">{{$app.name}}</div>
-        <button class="header-icon">
-            <!--<span><i class="ion-navicon-round"></i></span>-->
+        <button class="header-icon" data-ng-click="drawerParams.toggle()">
+            <span><i class="ion-navicon-round"></i></span>
         </button>
     </div>
 </div>
