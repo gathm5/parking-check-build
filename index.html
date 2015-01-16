@@ -41,7 +41,7 @@
     <div class="drawer-menu">
         <div class="menu-panel" data-fast-click="" data-ui-view="MenuPanel"></div>
     </div>
-    <div class="drawer-pull">
+    <div class="drawer-pull" data-ng-click="!drawerParams.isDrawerOpen || drawerParams.close()" data-ng-disabled="drawerParams.isDrawerOpen">
         <div class="container" data-fast-click="" data-ui-view=""></div>
     </div>
 </drawer>
