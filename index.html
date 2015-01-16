@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="styles/main.css"/>
 </head>
-<body data-ng-app="parkingCheckApp" data-device-platform="">
+<body data-ng-app="parkingCheckApp" data-device-platform="" data-ng-cloak="">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -41,8 +41,7 @@
     <div class="drawer-menu">
         <div class="menu-panel" data-fast-click="" data-ui-view="MenuPanel"></div>
     </div>
-    <div class="drawer-pull" data-ng-click="drawerParams.isDrawerOpen || drawerParams.close()" data-ng-class="{&apos;disable&apos;:drawerParams.isDrawerOpen}">
-        {{drawerParams.isDrawerOpen}}
+    <div class="drawer-pull" data-ng-class="{&apos;disable&apos;:drawerParams.isDrawerOpen}">
         <div class="container" data-fast-click="" data-ui-view=""></div>
     </div>
 </drawer>
@@ -80,7 +79,7 @@
 <div class="app-page">
     <header data-ui-view="Header" class="header"></header>
     <div data-ui-view="Content" screen-size="112" class="content"></div>
-    <div class="overlay" screen-size="112" data-ng-click="drawerParams.close()"></div>
+    <div class="overlay" data-ng-click="drawerParams.close()"></div>
     <footer data-ui-view="Footer"></footer>
 </div>
 </script>
