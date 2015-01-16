@@ -1,8 +1,6 @@
 <div class="app-page">
     <header data-ui-view="Header" class="header"></header>
-    <!--<ion-scroll class="content" direction="y" has-bouncing="true">
-        <div data-ui-view="Content" class="full"></div>
-    </ion-scroll>-->
     <div data-ui-view="Content" screen-size="112" class="content"></div>
+    <div class="overlay" screen-size="112" data-ng-click="drawerParams.close()"></div>
     <footer data-ui-view="Footer"></footer>
 </div>

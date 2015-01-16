@@ -7,7 +7,7 @@
     </div>
     <div data-ng-if="!header">
         <div class="text">{{$app.name}}</div>
-        <button class="header-icon" data-ng-click="drawerParams.toggle()">
+        <button class="header-icon" data-ng-click="drawerParams.isDrawerOpen || drawerParams.open()">
             <span><i class="ion-navicon-round"></i></span>
         </button>
     </div>
